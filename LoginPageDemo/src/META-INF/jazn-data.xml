@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8' standalone = 'yes'?>
+<jazn-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="http://xmlns.oracle.com/oracleas/schema/jazn-data.xsd">
+    <jazn-realm default="jazn.com">
+        <realm>
+            <name>jazn.com</name>
+            <users>
+                <user>
+                    <name>test</name>
+                    <credentials>{903}noPr/GLpQ92rBwLIqnrQfxGY/o8sUOd92QoXeUpM4qM=</credentials>
+                    <display-name>Ashutosh Ranjan Srivastwa</display-name>
+                    <description>It is just a Login Page.</description>
+                </user>
+                <user>
+                    <name>sysadmin</name>
+                    <credentials>{903}aA/K3dOsL2cak3JbT1UjAgNaiczwVrm8oyX2KbFhIC0=</credentials>
+                    <display-name>Sysadmin</display-name>
+                </user>
+            </users>
+        </realm>
+    </jazn-realm>
+    <policy-store>
+        <applications>
+            <application>
+                <name>LoginPageDemo</name>
+                <app-roles>
+                    <app-role>
+                        <name>AdminApplicationRole</name>
+                        <class>oracle.security.jps.service.policystore.ApplicationRole</class>
+                        <members>
+                            <member>
+                                <class>oracle.security.jps.internal.core.principals.JpsXmlUserImpl</class>
+                                <name>test</name>
+                            </member>
+                        </members>
+                    </app-role>
+                </app-roles>
+                <jazn-policy>
+                    <grant>
+                        <grantee>
+                            <principals>
+                                <principal>
+                                    <class>oracle.security.jps.service.policystore.ApplicationRole</class>
+                                    <name>AdminApplicationRole</name>
+                                </principal>
+                            </principals>
+                        </grantee>
+                        <permissions>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>view.pageDefs.welcomePageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                        </permissions>
+                    </grant>
+                </jazn-policy>
+            </application>
+        </applications>
+    </policy-store>
+    <system-policy/>
+</jazn-data>
